@@ -70,8 +70,9 @@ public class BooleanFunc implements Cloneable
       if (input > DEFAULT_TABLE_SIZE)
       {
          return evalReturnIfError;
-       }
-      return truthTable[input];
+      }
+      state = truthTable[input];
+      return state;
    }
 
    public boolean getState()
