@@ -10,7 +10,7 @@ public class BooleanFunc implements Cloneable
    private boolean state;
 
    // Constructors
-   public BooleanFunc() 
+   public BooleanFunc()
    {
       this(DEFAULT_TABLE_SIZE);
    }
@@ -20,12 +20,12 @@ public class BooleanFunc implements Cloneable
       this(tableSize, false);
    }
 
-   //Mutators
+   // Mutators
    public BooleanFunc(int tableSize, boolean evalReturnIfError)
    {
       this.tableSize = tableSize;
       this.evalReturnIfError = evalReturnIfError;
-      this.truthTable= new boolean[tableSize];
+      this.truthTable = new boolean[tableSize];
       this.state = evalReturnIfError;
    }
 
@@ -45,15 +45,15 @@ public class BooleanFunc implements Cloneable
       return true;
    }
 
-
    public boolean setTruthTableUsingFalse(int[] inputsThatProduceFalse)
    {
       if (inputsThatProduceFalse.length > truthTable.length)
       {
          return false;
-       }
-      for(int i =0;i<truthTable.length;i++){
-         truthTable[i]= true;
+      }
+      for (int i = 0; i < truthTable.length; i++)
+      {
+         truthTable[i] = true;
       }
       for (int num : inputsThatProduceFalse)
       {
@@ -80,12 +80,13 @@ public class BooleanFunc implements Cloneable
       return this.state;
    }
 
-   //Deep memory method and make a deep copy of truth table
+   // Deep memory method and make a deep copy of truth table
    public Object clone() throws CloneNotSupportedException
    {
       BooleanFunc newObj = (BooleanFunc) super.clone();
       newObj.truthTable = new boolean[tableSize];
-      for (int i = 0; i < tableSize; i++) {
+      for (int i = 0; i < tableSize; i++)
+      {
          newObj.truthTable[i] = this.truthTable[i];
       }
       return newObj;

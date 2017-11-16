@@ -8,7 +8,6 @@ public class MultiSegmentLogic implements Cloneable
    // Constructors
    public MultiSegmentLogic()
    {
-      this.segs = new BooleanFunc[numSegs];
    }
 
    public MultiSegmentLogic(int numSegs)
@@ -25,16 +24,16 @@ public class MultiSegmentLogic implements Cloneable
          return false;
       }
       this.numSegs = numSegs;
+      this.segs = new BooleanFunc[numSegs];
       return true;
    }
 
    public boolean setSegment(int segNum, BooleanFunc funcForThisSeg)
    {
-      if (segNum > funcForThisSeg.DEFAULT_TABLE_SIZE)
+      if (segNum >= numSegs)
       {
          return false;
       }
-      // TODO deep copy
       segs[segNum] = funcForThisSeg;
       return true;
    }
